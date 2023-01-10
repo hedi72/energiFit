@@ -1,0 +1,59 @@
+<!--::regervation_part start::-->
+<section class="about" id="about">
+  
+    <div class="image">
+        
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="assets/images/about-img.jpg" alt="" style="width: 80%;">
+            </div>
+            <div class="col-lg-6" style="margin-top: -30px;">
+                <section class="footer">
+  
+                    <div class="box-container">
+                        <div class="box">
+                            <h3 style="font-size: 50px; margin-left: -10%;"> <span style="color: red;">{{title1}}</span>{{title2}}</h3><br>
+                            
+                            <form #addChefForm="ngForm" (ngSubmit)='addChef()'>
+                                <input type="text" name="" class="email" placeholder="enter your firstName" id="" [(ngModel)]="chef.firstName" [ngModelOptions]="{standalone:true}">
+                                <div *ngIf="firstNameError">
+                                    <span style="color: red;"> firstName must not be empty</span>
+                                 </div>
+                                <input type="text" name="" class="email" placeholder="enter your lastName" id="" [(ngModel)]="chef.lastName" [ngModelOptions]="{standalone:true}">
+                                <div *ngIf="lastNameError">
+                                    <span style="color: red;">lastName must not be empty</span>
+                                 </div>
+                                <input type="email" name="" class="email" placeholder="enter your email" id="" [(ngModel)]="chef.email" [ngModelOptions]="{standalone:true}">
+                                <div *ngIf="emailError">
+                                    <span style="color: red;"> Check mail</span>
+                                 </div>
+                                <input type="password" name="" class="email" placeholder="enter your password" id="" [(ngModel)]="chef.password" [ngModelOptions]="{standalone:true}">
+                                <div *ngIf="passwordError">
+                                    <span style="color: red;"> password must be 8 caracters</span>
+                                 </div>
+                                <input type="email" name="" class="email" placeholder="Confirm password" id="" [(ngModel)]="chef.confirmPassword" [ngModelOptions]="{standalone:true}">
+                                <div *ngIf="confirmError">
+                                    <span style="color: red;"> Check confirm password</span>
+                                 </div>
+                                <input type="submit" value="{{title1}}" class="btn" style="margin-left: 35%;">
+                            </form>
+                        </div>
+                
+                    </div>
+                
+                </section>
+              
+            </div>
+        </div>
+    </div>
+
+</section>
+
+  
+  <!--::regervation_part end::-->
+
+
+

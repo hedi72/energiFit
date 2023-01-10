@@ -1,0 +1,159 @@
+<header class="header">
+      
+  
+    <a href="#" class="logo"> <span>ENERGY</span>&nbsp;FIT </a>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <nav class="navbar" >
+        <a href="#home">home</a>
+        <a href="#about" *ngIf="!connectedUser ||connectedUser1.role =='player'">about</a>
+        <!-- *ngIf="connectedUser.role ==trainers'" -->
+        <a href="#features" *ngIf="!connectedUser ||connectedUser1.role =='player'">features</a>
+        <a href="#pricing" *ngIf="!connectedUser ||connectedUser1.role =='player'">pricing</a>
+        <a href="#trainers" *ngIf="!connectedUser ||connectedUser1.role =='player'">trainers</a>
+        <a href="#trainers2" *ngIf="! connectedUser ||connectedUser1.role =='player'"><span>classes</span> </a>
+        <a class="nav-link" *ngIf="connectedUser1.role =='trainers' " routerLink='dashboard-trainers' >Dashboard trainer</a>
+        <a class="nav-link" *ngIf="connectedUser1.role =='admin' " routerLink='dashboard-admin' >Dashboard Admin</a>
+        <a class="nav-link" *ngIf="connectedUser1.role =='admin' " routerLink='add-trainers' >Add Trainers</a>
+       
+        <!-- <a class="nav-link" (click)="logout()" *ngIf="!connectedUser">Logout</a> -->
+        <a class="nav-link" (click)="logout()"  *ngIf="connectedUser">Logout</a>
+        <!-- <a class="nav-link" routerLink='addAdmin' *ngIf="connectedUser.role=='admin'">Add Admin</a> -->
+
+
+
+        <div class="login d-inline-block">
+          <a data-bs-toggle="modal" data-bs-target="#loginModal" href="#" style="font-size: 18px;" >{{title}}
+            <i class="fa fa-user ps-2" *ngIf="!connectedUser"></i></a>
+            
+        </div>
+        
+    </nav>
+
+    <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="loginModalLabel"><h2>Log in & Register</h2> </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs nav-tabs-02 justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab"
+                aria-controls="login" aria-selected="false" ><h1 style="color: red;">Login</h1></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link  btn-success"  routerLink='signup' 
+               ><h1 style="color: black;">Signup</h1></a>
+               
+            </li>
+          </ul>
+          <br>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+            
+          
+             
+
+             
+                <div class="col-md-12 form-group">
+                    <section class="footer">
+  
+                        <div class="box-container">
+                            <div class="box">
+                                <form #loginForm="ngForm" (ngSubmit)="login()">
+                                    <input type="email" name="" class="email" placeholder="enter your email" id=""  [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
+                                    <input type="password" name="" class="email" placeholder="enter your password" id=""  [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
+                                    <input type="submit" value="Login" class="btn" style="margin-left: 35%;" >
+
+                                </form>
+                            </div>
+                        </div>
+                    
+                    </section>
+
+                    
+    
+                </div>
+
+                <!-- </form> -->
+
+              <div class="login-social-media border ps-4 pe-4 pb-4 pt-0 rounded">
+                <div class="mb-4 d-block text-center"><b class="bg-white ps-2 pe-2 mt-3 d-block">Login or Sign in
+                    with</b></div>
+                <form class="row">
+                  <div class="col-sm-6">
+                    <a class="btnf facebook-bg social-bg-hover d-block mb-3" href="#"><span><i
+                          class="fab fa-facebook-f"></i>Login with Facebook</span></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a class="btnt twitter-bg social-bg-hover d-block mb-3" href="#"><span><i
+                          class="fab fa-twitter"></i>Login with Twitter</span></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a class="btng google-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i
+                          class="fab fa-google"></i>Login with Google</span></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a class="btnl linkedin-bg social-bg-hover d-block" href="#"><span><i
+                          class="fab fa-linkedin-in"></i>Login with Linkedin</span></a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+              <form class="row mt-4 mb-5 align-items-center">
+                <div class="mb-3 col-sm-12">
+                  <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="mb-3 col-sm-12">
+                  <input type="email" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="mb-3 col-sm-12">
+                  <input type="Password" class="form-control" placeholder="Password">
+                </div>
+                <div class="mb-3 col-sm-12">
+                  <input type="Password" class="form-control" placeholder="Confirm Password">
+                </div>
+                <div class="col-sm-6 d-grid">
+                  <button type="submit" class="btn btn-primary">Sign up</button>
+                </div>
+                <div class="col-sm-6">
+                  <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
+                    <li class="me-1"><a href="#"><b>Already Registered User? Click here to login</b></a></li>
+                  </ul>
+                </div>
+              </form>
+              <div class="login-social-media border ps-4 pe-4 pb-4 pt-0 rounded">
+                <div class="mb-4 d-block text-center"><b class="bg-white ps-2 pe-2 mt-3 d-block">Login or Sign in
+                    with</b></div>
+                <form class="row">
+                  <div class="col-sm-6">
+                    <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i
+                          class="fab fa-facebook-f"></i>Login with Facebook</span></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a class="btn twitter-bg social-bg-hover d-block mb-3" href="#"><span><i
+                          class="fab fa-twitter"></i>Login with Twitter</span></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a class="btn google-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i
+                          class="fab fa-google"></i>Login with Google</span></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a class="btn linkedin-bg social-bg-hover d-block" href="#"><span><i
+                          class="fab fa-linkedin-in"></i>Login with Linkedin</span></a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+  <!-- classes section starts  -->
+  
+  <section class="trainers" id="trainers2">
+  
+    <h1 class="heading"> <span>our classes</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box" *ngFor="let c of classes">
+            <!-- <img src="assets/images/gym.PNG" alt="">
+            <div class="content">
+                <span>expert trainer</span>
+                <h3>john deo</h3>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-pinterest"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div> -->
+            <app-class [childClass]="c"></app-class>
+        </div>
+
+      
+
+
+    </div>
+
+</section>

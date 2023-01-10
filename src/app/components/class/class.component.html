@@ -1,0 +1,17 @@
+<img src="assets/images/gym.PNG" alt="">
+<div class="content">
+    <span style="font-size: 20px;">{{childClass.className}}</span>
+   
+    <ng-container *ngFor="let u of users">
+    
+       
+        <h3 *ngIf="u._id == childClass.idTrainer">{{u.firstName}} {{u.lastName}}</h3>
+       
+        </ng-container>
+    <div class="share">
+        <h3>{{childClass.date}}</h3>
+        <button type="button" class="btn btn-outline-success" style="margin-right: 10px;" (click)="reservation(childClass._id)">Reservation</button>
+
+        
+    </div>
+</div>
